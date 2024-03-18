@@ -18,8 +18,8 @@ body {
     flex-direction: row;
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100vh;
+    max-width: 100%;
+    height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -47,9 +47,13 @@ th, td {
     .landing-header{
         display: flex;
         flex-direction: column;
-        max-width: 20%;
+        width: 20%;
         height: 100vh;
         background-color: #fafafa;
+        position: sticky;
+        -webkit-position: sticky;
+        top: 0;
+        left: 0;
     }
 
     .header-logo{
@@ -127,15 +131,16 @@ th, td {
     .landing-content{
         display: flex;
         flex-direction: column;
-        max-width: 80%;
-        height: 100%;
-        border: 1px solid #000;
+        width: 80%;
     }
 
     .landing-content-heading{
         display: flex;
         flex-direction: row;
         background-color: #fafafa;
+        padding: 15px 20px;
+        position: sticky;
+        top: 0;
     }
     /* CONTENT */
     /* LANDING PAGE */
