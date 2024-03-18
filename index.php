@@ -76,9 +76,12 @@
                 </ul>
             </nav>
         </section>
-        <section class="landing-body">
-            <div class="landing-body-heading">
-                <h2>Beranda</h2>
+        <section class="landing-content">
+            <div class="landing-content-heading">
+                <h2>Beranda - Inventaris Gereja</h2>
+            </div>
+            <div class="landing-content-body">
+                
             </div>
         </section>
     </body>
