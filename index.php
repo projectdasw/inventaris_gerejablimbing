@@ -33,6 +33,10 @@
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- FONT AWESOME ICON -->
 
+        <!-- SWIPER - CAROUSEL JS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <!-- SWIPER - CAROUSEL JS -->
+
         <link rel="stylesheet" href="assets/style.css">
         <title>Inventaris Gereja</title>
     </head>
@@ -81,8 +85,112 @@
                 <h2>Beranda - Inventaris Gereja</h2>
             </div>
             <div class="landing-content-body">
-                
+                <div class="landing-content-card swiper">
+                    <div class="card-container swiper-wrapper">
+                        <div class="card swiper-slide">
+                            <img src="img/data-gambar/fasilitas-ruangan.webp" alt="image">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <h2>Nama Bangunan</h2>
+                                    <span>Gereja Katolik Paroki St. Albertus de Trapani</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-tag">
+                                        <span>Ruang Sekretariat Paroki</span>
+                                        <span>Panti Imam</span>
+                                        <span>Perlengkapan Gereja</span>
+                                        <span>Sakristi</span>
+                                        <span>Aula Lantai 3</span>
+                                    </div>
+                                    <div class="card-button">
+                                        <a href="">
+                                            <i class="fa-solid fa-box-open"></i>
+                                            <span>Buka Katalog - Nama Bangunan</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <img src="img/data-gambar/fasilitas-ruangan.webp" alt="image">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <h2>Nama Bangunan</h2>
+                                    <span>Gereja Katolik Paroki St. Albertus de Trapani</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-tag">
+                                        <span>Ruang Sekretariat Paroki</span>
+                                        <span>Panti Imam</span>
+                                        <span>Perlengkapan Gereja</span>
+                                        <span>Sakristi</span>
+                                        <span>Aula Lantai 3</span>
+                                    </div>
+                                    <div class="card-button">
+                                        <a href="">
+                                            <i class="fa-solid fa-box-open"></i>
+                                            <span>Buka Katalog - Nama Bangunan</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <img src="img/data-gambar/fasilitas-ruangan.webp" alt="image">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <h2>Nama Bangunan</h2>
+                                    <span>Gereja Katolik Paroki St. Albertus de Trapani</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-tag">
+                                        <span>Ruang Sekretariat Paroki</span>
+                                        <span>Panti Imam</span>
+                                        <span>Perlengkapan Gereja</span>
+                                        <span>Sakristi</span>
+                                        <span>Aula Lantai 3</span>
+                                    </div>
+                                    <div class="card-button">
+                                        <a href="">
+                                            <i class="fa-solid fa-box-open"></i>
+                                            <span>Buka Katalog - Nama Bangunan</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card swiper-slide">
+                            <img src="img/data-gambar/fasilitas-ruangan.webp" alt="image">
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <h2>Nama Bangunan</h2>
+                                    <span>Gereja Katolik Paroki St. Albertus de Trapani</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-tag">
+                                        <span>Ruang Sekretariat Paroki</span>
+                                        <span>Panti Imam</span>
+                                        <span>Perlengkapan Gereja</span>
+                                        <span>Sakristi</span>
+                                        <span>Aula Lantai 3</span>
+                                    </div>
+                                    <div class="card-button">
+                                        <a href="">
+                                            <i class="fa-solid fa-box-open"></i>
+                                            <span>Buka Katalog - Nama Bangunan</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <!-- <div class="swiper-pagination"></div> -->
+                </div>
             </div>
         </section>
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/script.js"></script>
 </html>
