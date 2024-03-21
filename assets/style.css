@@ -99,7 +99,7 @@ th, td {
         -moz-transition: .3s;
         -ms-transition: .3s;
         -o-transition: .3s;
-}
+    }
 
     .header-menu-nav ul li:hover{
         background-color: #ffcf81;
@@ -188,7 +188,7 @@ th, td {
         -moz-border-radius: 50%;
         -ms-border-radius: 50%;
         -o-border-radius: 50%;
-}
+    }
 
     .landing-tracker .body-tracker,
     .landing-front-data-heading .body-front-data{
@@ -211,7 +211,7 @@ th, td {
         -moz-border-radius: 50%;
         -ms-border-radius: 50%;
         -o-border-radius: 50%;
-}
+    }
 
     .landing-content-card .swiper-button-next::after,
     .landing-content-card .swiper-button-prev::after{
@@ -272,7 +272,7 @@ th, td {
         -moz-transition: .3s;
         -ms-transition: .3s;
         -o-transition: .3s;
-}
+    }
 
     .landing-content-card .card-container .card .card-content:hover,
     .landing-catalog-card .card-container .card .card-content:hover{
@@ -361,6 +361,12 @@ th, td {
         display: flex;
         flex-direction: column;
         margin: 20px 0 0 0;
+    }
+
+    .landing-developer{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
     /* CONTENT */
     /* LANDING PAGE */
