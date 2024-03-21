@@ -1,3 +1,6 @@
+<?php
+    include "inc/connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -37,6 +40,10 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
         <!-- SWIPER - CAROUSEL JS -->
 
+        <!-- DATATABLES -->
+        <link href="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.0.2/datatables.min.css" rel="stylesheet">
+        <!-- DATATABLES -->
+
         <link rel="stylesheet" href="assets/style.css">
         <title>Inventaris Gereja</title>
     </head>
@@ -54,25 +61,25 @@
             <nav class="header-menu-nav">
                 <ul>
                     <li>
-                        <a href="">
+                        <a href="index.php">
                             <i class="fa-solid fa-house"></i>
                             <span>Beranda</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="index.php?katalog=katalog.php">
                             <i class="fa-regular fa-folder-open"></i>
                             <span>Katalog Barang</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="index.php?tentang=tentang.php">
                             <i class="fa-solid fa-people-group"></i>
                             <span>Tentang</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="login.php">
                             <i class="fa-solid fa-right-to-bracket"></i>
                             <span>Login</span>
                         </a>
@@ -82,115 +89,42 @@
         </section>
         <section class="landing-content">
             <div class="landing-content-heading">
-                <h2>Beranda - Inventaris Gereja</h2>
+                <?php
+                    if(isset($_GET['katalog'])){
+                        echo "<h2>Katalog Barang - Inventaris Gereja</h2>";
+                    }
+                    elseif(isset($_GET['tentang'])){
+                        echo "<h2>Tentang - Inventaris Gereja</h2>";
+                    }
+                    else{
+                        echo "<h2>Beranda - Inventaris Gereja</h2>";
+                    }
+                ?>
             </div>
             <div class="landing-content-body">
-                <div class="landing-content-card swiper">
-                    <div class="card-container swiper-wrapper">
-                        <div class="card swiper-slide">
-                            <img src="img/data-gambar/fasilitas-ruangan.webp" alt="image">
-                            <div class="card-content">
-                                <div class="card-title">
-                                    <h2>Nama Bangunan</h2>
-                                    <span>Gereja Katolik Paroki St. Albertus de Trapani</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-tag">
-                                        <span>Ruang Sekretariat Paroki</span>
-                                        <span>Panti Imam</span>
-                                        <span>Perlengkapan Gereja</span>
-                                        <span>Sakristi</span>
-                                        <span>Aula Lantai 3</span>
-                                    </div>
-                                    <div class="card-button">
-                                        <a href="">
-                                            <i class="fa-solid fa-box-open"></i>
-                                            <span>Buka Katalog - Nama Bangunan</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <img src="img/data-gambar/fasilitas-ruangan.webp" alt="image">
-                            <div class="card-content">
-                                <div class="card-title">
-                                    <h2>Nama Bangunan</h2>
-                                    <span>Gereja Katolik Paroki St. Albertus de Trapani</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-tag">
-                                        <span>Ruang Sekretariat Paroki</span>
-                                        <span>Panti Imam</span>
-                                        <span>Perlengkapan Gereja</span>
-                                        <span>Sakristi</span>
-                                        <span>Aula Lantai 3</span>
-                                    </div>
-                                    <div class="card-button">
-                                        <a href="">
-                                            <i class="fa-solid fa-box-open"></i>
-                                            <span>Buka Katalog - Nama Bangunan</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <img src="img/data-gambar/fasilitas-ruangan.webp" alt="image">
-                            <div class="card-content">
-                                <div class="card-title">
-                                    <h2>Nama Bangunan</h2>
-                                    <span>Gereja Katolik Paroki St. Albertus de Trapani</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-tag">
-                                        <span>Ruang Sekretariat Paroki</span>
-                                        <span>Panti Imam</span>
-                                        <span>Perlengkapan Gereja</span>
-                                        <span>Sakristi</span>
-                                        <span>Aula Lantai 3</span>
-                                    </div>
-                                    <div class="card-button">
-                                        <a href="">
-                                            <i class="fa-solid fa-box-open"></i>
-                                            <span>Buka Katalog - Nama Bangunan</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card swiper-slide">
-                            <img src="img/data-gambar/fasilitas-ruangan.webp" alt="image">
-                            <div class="card-content">
-                                <div class="card-title">
-                                    <h2>Nama Bangunan</h2>
-                                    <span>Gereja Katolik Paroki St. Albertus de Trapani</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-tag">
-                                        <span>Ruang Sekretariat Paroki</span>
-                                        <span>Panti Imam</span>
-                                        <span>Perlengkapan Gereja</span>
-                                        <span>Sakristi</span>
-                                        <span>Aula Lantai 3</span>
-                                    </div>
-                                    <div class="card-button">
-                                        <a href="">
-                                            <i class="fa-solid fa-box-open"></i>
-                                            <span>Buka Katalog - Nama Bangunan</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <!-- <div class="swiper-pagination"></div> -->
-                </div>
+                <?php
+                    if(isset($_GET['katalog'])){
+                        require_once "katalog.php";
+                    }
+                    elseif(isset($_GET['tentang'])){
+                        require_once "tentang.php";
+                    }
+                    else{
+                        require_once "home.php";
+                    }
+                ?>
             </div>
         </section>
     </body>
+    <!-- DATATABLES JS -->
+    <script src="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.0.2/datatables.min.js"></script>
+    <!-- DATATABLES JS -->
+
+    <!-- SWIPER JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- SWIPER JS -->
+
+    <!-- JavaScript -->
     <script src="assets/script.js"></script>
+    <!-- JavaScript -->
 </html>
