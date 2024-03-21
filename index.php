@@ -116,6 +116,9 @@
             </div>
         </section>
     </body>
+    <?php
+        mysqli_close($connect);
+    ?>
     <!-- DATATABLES JS -->
     <script src="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.0.2/datatables.min.js"></script>
     <!-- DATATABLES JS -->
