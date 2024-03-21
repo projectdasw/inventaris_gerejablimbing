@@ -132,7 +132,6 @@ th, td {
         display: flex;
         flex-direction: column;
         width: 80%;
-        height: 100vh;
     }
 
     .landing-content-heading{
@@ -143,6 +142,7 @@ th, td {
         padding: 15px 20px;
         position: sticky;
         top: 0;
+        z-index: 2;
     }
 
     .landing-content-body{
@@ -152,10 +152,70 @@ th, td {
         padding: 15px 20px;
     }
 
+    .landing-tracker,
+    .landing-front-data-heading{
+        display: flex;
+        flex-direction: column;
+        background-color: #fdedbd;
+        padding: 10px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+
+    .landing-front-data-heading{
+        margin-bottom: 10px;
+    }
+
+    .landing-tracker .header-tracker,
+    .landing-front-data-heading .header-front-data{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .landing-tracker .header-tracker i,
+    .landing-front-data-heading .header-front-data i{
+        background-color: red;
+        color: #fff;
+        margin-right: 6px;
+        font-size: 20px;
+        padding: 5px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+}
+
+    .landing-tracker .body-tracker,
+    .landing-front-data-heading .body-front-data{
+        margin: 0;
+    }
+
     .landing-content-card{
         display: flex;
         flex-direction: column;
         width: 100%;
+    }
+
+    .landing-content-card .swiper-button-next,
+    .landing-content-card .swiper-button-prev{
+        background-color: #ff5900;
+        border-radius: 50%;
+        padding: 0 8px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+}
+
+    .landing-content-card .swiper-button-next::after,
+    .landing-content-card .swiper-button-prev::after{
+        font-size: 25px;
+        color: #fff;
     }
 
     .landing-content-card .card-container{
@@ -247,6 +307,7 @@ th, td {
 
     .landing-content-card .card-container .card .card-button a{
         text-decoration: none;
+        font-size: 14px;
         background-color: #FAA300;
         color: #fff;
         margin-top: 10px;
@@ -261,12 +322,18 @@ th, td {
         -moz-transition: .3s;
         -ms-transition: .3s;
         -o-transition: .3s;
-}
+    }
 
     .landing-content-card .card-container .card .card-button a:hover{
         border: 1px solid #FAA300;
         background-color: #fff;
         color: #FAA300;
+    }
+
+    .landing-front-data{
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0 0 0;
     }
     /* CONTENT */
     /* LANDING PAGE */
