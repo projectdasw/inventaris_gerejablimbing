@@ -195,7 +195,8 @@ th, td {
         margin: 0;
     }
 
-    .landing-content-card{
+    .landing-content-card,
+    .landing-catalog-card{
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -225,7 +226,17 @@ th, td {
         padding: 15px 0;
     }
 
-    .landing-content-card .card-container .card{
+    .landing-catalog-card .card-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    .landing-content-card .card-container .card,
+    .landing-catalog-card .card-container .card{
         display: flex;
         flex-direction: column;
         flex-basis: 30%;
@@ -236,13 +247,19 @@ th, td {
         -moz-border-radius: 10px;
         -ms-border-radius: 10px;
         -o-border-radius: 10px;
-}
+    }
 
-    .landing-content-card .card-container .card img{
+    .landing-catalog-card .card-container .card{
+        margin-bottom: 30px;
+    }
+
+    .landing-content-card .card-container .card img,
+    .landing-catalog-card .card-container .card img{
         width: 100%;
     }
 
-    .landing-content-card .card-container .card .card-content{
+    .landing-content-card .card-container .card .card-content,
+    .landing-catalog-card .card-container .card .card-content{
         display: flex;
         flex-direction: column;
         padding: 10px 15px;
@@ -257,36 +274,43 @@ th, td {
         -o-transition: .3s;
 }
 
-    .landing-content-card .card-container .card .card-content:hover{
+    .landing-content-card .card-container .card .card-content:hover,
+    .landing-catalog-card .card-container .card .card-content:hover{
         margin-top: -15px;
     }
 
-    .landing-content-card .card-container .card .card-title{
+    .landing-content-card .card-container .card .card-title,
+    .landing-catalog-card .card-container .card .card-title{
         display: flex;
         flex-direction: column;
     }
 
-    .landing-content-card .card-container .card .card-title h2{
+    .landing-content-card .card-container .card .card-title h2,
+    .landing-catalog-card .card-container .card .card-title h2{
         margin: 0;
         font-size: 20px;
     }
 
-    .landing-content-card .card-container .card .card-title span{
+    .landing-content-card .card-container .card .card-title span,
+    .landing-catalog-card .card-container .card .card-title span{
         font-size: 13px;
     }
 
-    .landing-content-card .card-container .card .card-body{
+    .landing-content-card .card-container .card .card-body,
+    .landing-catalog-card .card-container .card .card-body{
         display: flex;
         flex-direction: column;
     }
 
-    .landing-content-card .card-container .card .card-body .card-tag{
+    .landing-content-card .card-container .card .card-body .card-tag,
+    .landing-catalog-card .card-container .card .card-body .card-tag{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
 
-    .landing-content-card .card-container .card .card-body .card-tag span{
+    .landing-content-card .card-container .card .card-body .card-tag span,
+    .landing-catalog-card .card-container .card .card-body .card-tag span{
         background-color: #ff9e00;
         color: #fff;
         font-size: 10px;
@@ -299,13 +323,15 @@ th, td {
         -o-border-radius: 10px;
     }
 
-    .landing-content-card .card-container .card .card-button{
+    .landing-content-card .card-container .card .card-button,
+    .landing-catalog-card .card-container .card .card-button{
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .landing-content-card .card-container .card .card-button a{
+    .landing-content-card .card-container .card .card-button a,
+    .landing-catalog-card .card-container .card .card-button a{
         text-decoration: none;
         font-size: 14px;
         background-color: #FAA300;
@@ -324,7 +350,8 @@ th, td {
         -o-transition: .3s;
     }
 
-    .landing-content-card .card-container .card .card-button a:hover{
+    .landing-content-card .card-container .card .card-button a:hover,
+    .landing-catalog-card .card-container .card .card-button a:hover{
         border: 1px solid #FAA300;
         background-color: #fff;
         color: #FAA300;
