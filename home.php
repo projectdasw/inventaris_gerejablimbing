@@ -49,7 +49,6 @@
         <?php
             }
             mysqli_free_result($tampil_bangunan_query);
-            mysqli_close($connect);
         ?>
     </div>
     <div class="swiper-button-next"></div>
@@ -77,7 +76,33 @@
             </tr>
         </thead>
         <tbody>
-        
+            <?php
+                $tampil_barang_gereja = "select * from barang_gereja";
+                $tampil_barang_gereja_query = mysqli_query($connect,$tampil_barang_gereja);
+                while($tampil_barang_gereja_hasil = mysqli_fetch_assoc($tampil_barang_gereja_query))
+                {
+                    $id = $tampil_barang_gereja_hasil['id_barang'];
+                    $nm = $tampil_barang_gereja_hasil['nama_barang'];
+                    $desc = $tampil_barang_gereja_hasil['deskripsi'];
+                    $jml = $tampil_barang_gereja_hasil['jumlah'];
+                    $knd = $tampil_barang_gereja_hasil['kondisi'];
+                    $ket = $tampil_barang_gereja_hasil['keterangan'];
+                    $nm_bangunan = $tampil_barang_gereja_hasil['nama_bangunan'];
+                    $nm_loc = $tampil_barang_gereja_hasil['nama_lokasi_utama'];
+                    $nm_los = $tampil_barang_gereja_hasil['nama_lokasi_sekunder'];
+            ?>
+            <tr>
+                <td><?php echo $nm;?></td>
+                <td><?php echo $jml;?></td>
+                <td><?php echo $knd;?></td>
+                <td><?php echo $nm_bangunan;?></td>
+                <td><?php echo $nm_loc;?></td>
+                <td><?php echo $nm_los;?></td>
+            </tr>
+            <?php
+                }
+                mysqli_free_result($tampil_barang_gereja_query);            
+            ?>
         </tbody>
         <tfoot>
             
