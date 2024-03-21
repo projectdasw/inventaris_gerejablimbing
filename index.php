@@ -50,7 +50,7 @@
     <body>
         <section class="landing-header">
             <div class="header-logo">
-                <img src="img/logo-paroki-new.png" alt="image">
+                <img src="img/logo-paroki-new.webp" alt="image">
                 <div class="header-logo-caption">
                     <h2>Gereja Katolik Paroki St. Albertus de Trapani</h2>
                     <a href="https://parokiblimbing.org/" target="_blank">
