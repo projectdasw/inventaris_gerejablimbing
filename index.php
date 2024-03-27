@@ -45,7 +45,22 @@
         <!-- DATATABLES -->
 
         <link rel="stylesheet" href="assets/style.css">
-        <title>Inventaris Gereja</title>
+        <title>
+            <?php
+                if(isset($_GET['katalog'])){
+                    echo "Katalog Barang - Inventaris Gereja";
+                }
+                elseif(isset($_GET['tentang'])){
+                    echo "Tentang - Inventaris Gereja";
+                }
+                elseif(isset($_GET['login'])){
+                    echo "Login - Inventaris Gereja";
+                }
+                else{
+                    echo "Inventaris Gereja";
+                }
+            ?>
+        </title>
     </head>
     <body>
         <section class="landing-header">
@@ -79,7 +94,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="login.php">
+                        <a href="index.php?login=login.php">
                             <i class="fa-solid fa-right-to-bracket"></i>
                             <span>Login</span>
                         </a>
@@ -88,7 +103,7 @@
             </nav>
         </section>
         <section class="landing-content">
-            <div class="landing-content-heading">
+            <!-- <div class="landing-content-heading">
                 <?php
                     if(isset($_GET['katalog'])){
                         echo "<h2>Katalog Barang - Inventaris Gereja</h2>";
@@ -100,7 +115,7 @@
                         echo "<h2>Beranda - Inventaris Gereja</h2>";
                     }
                 ?>
-            </div>
+            </div> -->
             <div class="landing-content-body">
                 <?php
                     if(isset($_GET['katalog'])){
@@ -108,6 +123,9 @@
                     }
                     elseif(isset($_GET['tentang'])){
                         require_once "tentang.php";
+                    }
+                    elseif(isset($_GET['login'])){
+                        require_once "login.php";
                     }
                     else{
                         require_once "home.php";
