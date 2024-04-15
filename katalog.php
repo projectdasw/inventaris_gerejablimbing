@@ -8,7 +8,6 @@
                 $id = $tampil_bangunan_hasil['id_bangunan'];
                 $nm = $tampil_bangunan_hasil['nama_bangunan'];
                 $ft = $tampil_bangunan_hasil['foto_bangunan'];
-                $link = $tampil_bangunan_hasil['hyperlink'];
         ?>
         <div class="card">
             <img src="img/data-gambar/fasilitas-ruangan.webp" alt="image">
