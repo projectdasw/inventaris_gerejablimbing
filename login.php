@@ -1,20 +1,23 @@
 <div class="login-form">
     <fieldset>
         <legend>Login - Inventaris Gereja</legend>
-        <form action="" class="form-container" enctype="multipart/form-data">
+        <form action="" class="form-container" enctype="multipart/form-data" autocomplete="off">
             <div class="form-group">
-                <label for="">
+                <label for="username">
                     <i class="fa-solid fa-circle-user"></i>
                     Username
                 </label>
-                <input type="text" placeholder="Masukkan Username Anda">
+                <input type="text" id="username" placeholder="Masukkan Username Anda">
             </div>
             <div class="form-group">
-                <label for="">
+                <label for="password">
                     <i class="fa-solid fa-key"></i>
                     Password
                 </label>
-                <input type="password" placeholder="Masukkan Password Anda">
+                <div class="password-form">
+                    <input type="password" id="password" placeholder="Masukkan Password Anda">
+                    <i id="icon-change" class="fa-solid fa-eye-slash" onclick="VisiblePass()"></i>
+                </div>
             </div>
             <div class="button-group">
                 <button type="submit" class="btn-small btn-success">
