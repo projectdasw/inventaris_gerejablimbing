@@ -19,8 +19,6 @@
             {
                 $id = $tampil_bangunan_hasil['id_bangunan'];
                 $nm = $tampil_bangunan_hasil['nama_bangunan'];
-                $ft = $tampil_bangunan_hasil['foto_bangunan'];
-                $link = $tampil_bangunan_hasil['hyperlink'];
         ?>
         <div class="card swiper-slide">
             <img src="img/data-gambar/fasilitas-ruangan.webp" alt="image">
@@ -64,7 +62,7 @@
             Keseluruhan data inventaris barang gereja
         </p>
     </div>
-    <table id="example" class="display" style="width:100%">
+    <table id="table-data" class="display" style="width:100%">
         <thead>
             <tr>
                 <th>Nama Barang</th>
@@ -86,7 +84,7 @@
                     $desc = $tampil_barang_gereja_hasil['deskripsi'];
                     $jml = $tampil_barang_gereja_hasil['jumlah'];
                     $knd = $tampil_barang_gereja_hasil['kondisi'];
-                    $ket = $tampil_barang_gereja_hasil['keterangan'];
+                    $ket = $tampil_barang_gereja_hasil['keterangan_kondisi'];
                     $nm_bangunan = $tampil_barang_gereja_hasil['nama_bangunan'];
                     $nm_loc = $tampil_barang_gereja_hasil['nama_lokasi_utama'];
                     $nm_los = $tampil_barang_gereja_hasil['nama_lokasi_sekunder'];
@@ -105,7 +103,14 @@
             ?>
         </tbody>
         <tfoot>
-            
+            <tr>
+                <th>Nama Barang</th>
+                <th>Jumlah</th>
+                <th>Kondisi</th>
+                <th>Bangunan</th>
+                <th>Lokasi Utama</th>
+                <th>Lokasi Sekunder</th>
+            </tr>
         </tfoot>
     </table>
 </div>
