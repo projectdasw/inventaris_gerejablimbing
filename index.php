@@ -10,6 +10,11 @@
         <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
         <link rel="manifest" href="favicon/site.webmanifest">
+
+        <!-- BOOTSTRAP CSS & JS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- BOOTSTRAP CSS & JS -->
         
         <!-- FONT STYLE -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,13 +41,15 @@
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- FONT AWESOME ICON -->
 
-        <!-- SWIPER - CAROUSEL JS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-        <!-- SWIPER - CAROUSEL JS -->
-
-        <!-- DATATABLES -->
+        <!-- DATATABLES CSS & JS-->
         <link href="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.0.2/datatables.min.css" rel="stylesheet">
-        <!-- DATATABLES -->
+        <script src="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.0.2/datatables.min.js"></script>
+        <!-- DATATABLES CSS & JS -->
+
+        <!-- SWIPER CSS & JS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <!-- SWIPER JS -->
 
         <link rel="stylesheet" href="assets/style.css">
         <title>
@@ -53,9 +60,6 @@
                 elseif(isset($_GET['tentang'])){
                     echo "Tentang - Inventaris Gereja";
                 }
-                elseif(isset($_GET['login'])){
-                    echo "Login - Inventaris Gereja";
-                }
                 else{
                     echo "Inventaris Gereja";
                 }
@@ -63,88 +67,74 @@
         </title>
     </head>
     <body>
-        <section class="landing-header">
-            <div class="header-logo">
-                <img src="img/logo-paroki-new.webp" alt="image">
-                <div class="header-logo-caption">
-                    <h2>Gereja Katolik Paroki St. Albertus de Trapani</h2>
-                    <a href="https://parokiblimbing.org/" target="_blank">
-                        parokiblimbing.org
-                    </a>
+        <!-- HEADER -->
+        <div class="sticky-top d-flex flex-column flex-wrap p-0">
+            <div class="d-flex flex-row justify-content-evenly align-items-center p-1 text-bg-light">
+                <div class="d-flex flex-row align-items-center">
+                    <img class="nav-img" src="img/logo-paroki-new.webp" alt="image">
+                    <div class="d-flex flex-column ms-2">
+                        <span>Gereja Katolik Paroki St. Albertus de Trapani</span>
+                        <a class="web-link badge bg-success text-start"
+                            href="https://parokiblimbing.org" target="_blank">
+                            parokiblimbing.org
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <nav class="header-menu-nav">
-                <ul>
-                    <li>
-                        <a href="index.php">
-                            <i class="fa-solid fa-house"></i>
+                <ul class="navbar-nav d-flex flex-row">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">
+                            <i class="fa-solid fa-house me-1"></i>
                             <span>Beranda</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="index.php?katalog=katalog.php">
-                            <i class="fa-regular fa-folder-open"></i>
-                            <span>Katalog Barang</span>
+                    <li class="nav-item ms-4">
+                        <a class="nav-link" href="index.php?katalog=katalog.php">
+                            <i class="fa-regular fa-folder-open me-1"></i>
+                            <span>Katalog</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="index.php?tentang=tentang.php">
-                            <i class="fa-solid fa-people-group"></i>
+                    <li class="nav-item ms-4">
+                        <a class="nav-link" href="index.php?tentang=tentang.php">
+                            <i class="fa-solid fa-people-group me-1"></i>
                             <span>Tentang</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="index.php?login=login.php">
-                            <i class="fa-solid fa-right-to-bracket"></i>
+                    <li class="nav-item ms-4">
+                        <button type="button" class="btn btn-primary bg-gradient"
+                            data-bs-toggle="modal" data-bs-target="#LoginModal">
+                            <i class="fa-solid fa-right-to-bracket me-1"></i>
                             <span>Login</span>
-                        </a>
+                        </button>
                     </li>
                 </ul>
-            </nav>
-        </section>
-        <section class="landing-content">
-            <!-- <div class="landing-content-heading">
-                <?php
-                    if(isset($_GET['katalog'])){
-                        echo "<h2>Katalog Barang - Inventaris Gereja</h2>";
-                    }
-                    elseif(isset($_GET['tentang'])){
-                        echo "<h2>Tentang - Inventaris Gereja</h2>";
-                    }
-                    else{
-                        echo "<h2>Beranda - Inventaris Gereja</h2>";
-                    }
-                ?>
-            </div> -->
-            <div class="landing-content-body">
-                <?php
-                    if(isset($_GET['katalog'])){
-                        require_once "katalog.php";
-                    }
-                    elseif(isset($_GET['tentang'])){
-                        require_once "tentang.php";
-                    }
-                    elseif(isset($_GET['login'])){
-                        require_once "login.php";
-                    }
-                    else{
-                        require_once "home.php";
-                    }
-                ?>
             </div>
-        </section>
+        </div>
+        <!-- HEADER -->
+
+        <!-- CONTENT -->
+        <div class="container-fluid d-flex flex-column">
+            <?php include "login.php"; ?>
+            <?php include "popup_data.php"; ?>
+            <?php
+                if(isset($_GET['katalog'])){
+                    require_once "katalog.php";
+                }
+                elseif(isset($_GET['tentang'])){
+                    require_once "tentang.php";
+                }
+                elseif(isset($_GET['login'])){
+                    require_once "login.php";
+                }
+                else{
+                    require_once "home.php";
+                }
+            ?>
+        </div>
+        <!-- CONTENT -->
+        <?php
+            mysqli_close($connect);
+        ?>
     </body>
-    <?php
-        mysqli_close($connect);
-    ?>
-    <!-- DATATABLES JS -->
-    <script src="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.0.2/datatables.min.js"></script>
-    <!-- DATATABLES JS -->
-
-    <!-- SWIPER JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- SWIPER JS -->
-
     <!-- JavaScript -->
     <script src="assets/script.js"></script>
     <!-- JavaScript -->

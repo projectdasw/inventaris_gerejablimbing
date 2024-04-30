@@ -1,3 +1,45 @@
+<?php
+    if(isset($_SESSION['sukses-tambah-bangunan'])){
+?>
+    <script>
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Data berhasil disimpan",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    </script>
+<?php
+    unset($_SESSION['sukses-tambah-bangunan']);
+    } elseif(isset($_SESSION['sukses-edit-bangunan'])){
+?>
+    <script>
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Data berhasil di ubah",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    </script>
+<?php
+    unset($_SESSION['sukses-edit-bangunan']);
+    } elseif(isset($_SESSION['sukses-hapus-bangunan'])){
+?>
+    <script>
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Data berhasil di hapus",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    </script>
+<?php
+    unset($_SESSION['sukses-hapus-bangunan']);
+    } 
+?>
 <table id="table-data" class="display" style="width:100%">
     <thead>
         <tr>
@@ -22,11 +64,14 @@
             <td><?php echo $nm;?></td>
             <td><?php echo $ft;?></td>
             <td>
-                <a class="edit-data-table btn-success" href="">
+                <a class="edit-data-table btn-success"
+                    href="index.php?form-bangunan=form-bangunan.php&ubah_bangunan=<?php echo $id; ?>">
                     <i class="fa-solid fa-pencil"></i>
                     <span>Ubah</span>
                 </a>
-                <a class="delete-data-table btn-danger" href="">
+                <a class="delete-data-table btn-danger"
+                    href="../inc/process.php?hapus_bangunan=<?php echo $id; ?>"
+                    onclick = "confirmDelete(event)">
                     <i class="fa-solid fa-trash-can"></i>
                     <span>Hapus</span>
                 </a>
