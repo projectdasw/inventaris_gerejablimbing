@@ -1,4 +1,5 @@
-<table id="table-data" class="display" style="width:100%">
+<div class="bg-light p-3 rounded-4">
+    <table id="table-data" class="display">
     <thead>
         <tr>
             <th>Waktu/Tanggal</th>
@@ -33,4 +34,4 @@
             <th>Aktivitas</th>
         </tr>
     </tfoot>
-</table>
+    </table>

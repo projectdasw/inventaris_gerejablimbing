@@ -18,8 +18,12 @@
         <link rel="manifest" href="../favicon/site.webmanifest">
 
         <!-- BOOTSTRAP CSS & JS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+            integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+            integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <!-- BOOTSTRAP CSS & JS -->
         
         <!-- FONT STYLE -->
@@ -53,17 +57,17 @@
         <!-- DATATABLES CSS & JS -->
 
         <!-- SWIPER CSS & JS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"
+            integrity="sha512-rd0qOHVMOcez6pLWPVFIv7EfSdGKLt+eafXh4RO/12Fgr41hDQxfGvoi1Vy55QIVcQEujUE1LQrATCLl2Fs+ag=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"
+            integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <!-- SWIPER CSS & JS -->
 
         <!-- SWEETALERT JS -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- SWEETALERT JS -->
-
-        <!-- CHART JS -->
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <!-- CHART JS -->
 
         <link rel="stylesheet" href="../assets/style.css">
         <title>
@@ -105,6 +109,7 @@
         <?php include "../inc/modal_tambahbaru.php"; ?>
         <?php include "../inc/modal_tambahjumlah.php"; ?>
         <?php include "../inc/modal_kurangibarang.php"; ?>
+        
         <!-- OFFCANVAS MENU -->
         <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
             <div class="offcanvas-header">
@@ -175,97 +180,25 @@
                         </a>
                     </li>
                     <li>
-                        <div class="accordion accordion-flush" id="accor_bangunan">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <a class="accordion-button collapsed d-flex flex-row justify-content-between align-items-center"
-                                        data-bs-toggle="collapse" data-bs-target="#flush-bangunan" aria-expanded="false"
-                                        aria-controls="flush-bangunan">
-                                        <span>Bangunan</span>
-                                    </a>
-                                </h2>
-                                <div id="flush-bangunan" class="accordion-collapse collapse" data-bs-parent="#accor_bangunan">
-                                    <div class="accordion-body bg-dark bg-gradient p-0">
-                                        <div class="d-flex flex-column">
-                                            <?php
-                                                $tampil_bangunan = "select * from bangunan";
-                                                $tampil_bangunan_query = mysqli_query($connect,$tampil_bangunan);
-                                                while($tampil_bangunan_hasil = mysqli_fetch_assoc($tampil_bangunan_query))
-                                                {
-                                                    $id = $tampil_bangunan_hasil['id_bangunan'];
-                                                    $nm = $tampil_bangunan_hasil['nama_bangunan'];
-                                            ?>
-                                                <a class="sub-menu text-white" href="">
-                                                    <?php echo $nm; ?>
-                                                </a>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <a class="d-flex flex-row justify-content-between align-items-center"
+                            href="index.php?bangunan=bangunan.php">
+                            <span>Bangunan</span>
+                            <i class="fa-solid fa-church"></i>
+                        </a>
                     </li>
                     <li>
-                        <div class="accordion accordion-flush" id="accor_lokasiutama">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <a class="accordion-button collapsed d-flex flex-row justify-content-between align-items-center"
-                                        data-bs-toggle="collapse" data-bs-target="#flush-lokasiutama" aria-expanded="false"
-                                        aria-controls="flush-lokasiutama">
-                                        <span>Lokasi Utama</span>
-                                    </a>
-                                </h2>
-                                <div id="flush-lokasiutama" class="accordion-collapse collapse" data-bs-parent="#accor_lokasiutama">
-                                    <div class="accordion-body bg-dark bg-gradient p-0">
-                                        <div class="d-flex flex-column">
-                                            <?php
-                                                $tampil_lokasi_utama = "select * from lokasi_utama";
-                                                $tampil_lokasi_utama_query = mysqli_query($connect,$tampil_lokasi_utama);
-                                                while($tampil_lokasi_utama_hasil = mysqli_fetch_assoc($tampil_lokasi_utama_query))
-                                                {
-                                                    $id = $tampil_lokasi_utama_hasil['id_lokasi'];
-                                                    $nm = $tampil_lokasi_utama_hasil['nama_lokasi_utama'];
-                                            ?>
-                                                <a class="sub-menu text-white" href="">
-                                                    <?php echo $nm; ?>
-                                                </a>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <a class="d-flex flex-row justify-content-between align-items-center"
+                            href="index.php?lokasi-utama=lokasi-utama.php">
+                            <span>Lokasi Utama</span>
+                            <i class="fa-solid fa-building-flag"></i>
+                        </a>
                     </li>
                     <li>
-                        <div class="accordion accordion-flush" id="accor_lokasisekunder">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <a class="accordion-button collapsed d-flex flex-row justify-content-between align-items-center"
-                                        data-bs-toggle="collapse" data-bs-target="#flush-lokasisekunder" aria-expanded="false"
-                                        aria-controls="flush-lokasisekunder">
-                                        <span>Lokasi Sekunder</span>
-                                    </a>
-                                </h2>
-                                <div id="flush-lokasisekunder" class="accordion-collapse collapse" data-bs-parent="#accor_lokasisekunder">
-                                    <div class="accordion-body bg-dark bg-gradient p-0">
-                                        <div class="d-flex flex-column">
-                                            <?php
-                                                $tampil_lokasi_sekunder = "select * from lokasi_sekunder";
-                                                $tampil_lokasi_sekunder_query = mysqli_query($connect,$tampil_lokasi_sekunder);
-                                                while($tampil_lokasi_sekunder_hasil = mysqli_fetch_assoc($tampil_lokasi_sekunder_query))
-                                                {
-                                                    $id = $tampil_lokasi_sekunder_hasil['id_lokasi_sekunder'];
-                                                    $nm = $tampil_lokasi_sekunder_hasil['nama_lokasi_sekunder'];
-                                            ?>
-                                                <a class="sub-menu text-white" href="">
-                                                    <?php echo $nm; ?>
-                                                </a>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <a class="d-flex flex-row justify-content-between align-items-center"
+                            href="index.php?lokasi-sekunder=lokasi-sekunder.php">
+                            <span>Lokasi Sekunder</span>
+                            <i class="fa-solid fa-building-flag"></i>
+                        </a>
                     </li>
                     <li>
                         <a class="d-flex flex-row justify-content-between align-items-center"

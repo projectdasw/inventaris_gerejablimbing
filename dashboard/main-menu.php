@@ -160,41 +160,32 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
 </div>
-<div class="d-flex flex-row justify-content-between mt-4">
-    <div class="bg-light rounded-4 p-3" style="width: 60%;">
-        <h2 class="fs-4 border-bottom mb-3 py-2">
-            Transaksi Barang
-        </h2>
-        <table id="table_trans_barang" class="display" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Nama Barang</th>
-                    <th>Jumlah</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>Nama Barang</th>
-                    <th>Jumlah</th>
-                    <th>Status</th>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-    <div class="bg-light rounded-4 p-3" style="width: 38%;">
-        <h2 class="fs-4 text-center mb-3 py-2">
-            Total Harta Benda Gereja
-        </h2>
-        <canvas id="treasure-chart">
-        </canvas>
-    </div>
-</div>
 <div class="container-fluid p-0">
     <div class="row">
         <div class="col">
+            <div class="bg-light mt-4 p-3 rounded-4">
+                <table id="table_trans_barang" class="display">
+                    <h2 class="fs-4 border-bottom mb-3 py-2">
+                        Transaksi Barang
+                    </h2>
+                    <thead>
+                        <tr>
+                            <th>Nama Barang</th>
+                            <th>Jumlah</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Nama Barang</th>
+                            <th>Jumlah</th>
+                            <th>Status</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
             <div class="bg-light mt-4 p-3 rounded-4">
                 <table id="table_track" class="display">
                     <h2 class="fs-4 border-bottom mb-3 py-2">
@@ -262,6 +253,8 @@
                     </tfoot>
                 </table>
             </div>
+        </div>
+        <div class="col">
             <div class="bg-light mt-4 p-3 rounded-4">
                 <table id="table_bangunan" class="display">
                     <h2 class="fs-4 border-bottom mb-3 py-2">
@@ -316,8 +309,6 @@
                     </tfoot>
                 </table>
             </div>
-        </div>
-        <div class="col">
             <div class="bg-light mt-4 p-3 rounded-4">
                 <table id="table_lokasi_utama" class="display">
                     <h2 class="fs-4 border-bottom mb-3 py-2">

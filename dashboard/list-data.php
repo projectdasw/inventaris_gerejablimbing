@@ -85,7 +85,7 @@
                         <i class="fa-solid fa-pencil"></i>
                         <span>Ubah</span>
                     </a>
-                    <?php include "../inc/modal_edit.php"; ?>
+                    <?php include "../inc/modal_editbarang.php"; ?>
                     <a class="badge btn btn-danger"
                         href="../inc/process.php?hapus_barang_gereja=<?php echo $id; ?>"
                         onclick="confirmDelete(event)">
