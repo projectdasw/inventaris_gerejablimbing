@@ -40,8 +40,14 @@
     unset($_SESSION['sukses-hapus-akun']);
     } 
 ?>
-<div class="bg-light p-3 rounded-4">
-    <table id="table-data" class="display">
+<div class="d-flex flex-row justify-content-end">
+    <a class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#tambah_akun">
+        <i class="fa-solid fa-plus"></i>
+        Tambah Akun
+    </a>
+</div>
+<div class="bg-light overflow-x-auto">
+    <table id="" class="display">
         <thead>
             <tr>
                 <th>ID Akun</th>
@@ -59,29 +65,29 @@
                 $tampil_akun_query = mysqli_query($connect,$tampil_akun);
                 while($tampil_akun_hasil = mysqli_fetch_assoc($tampil_akun_query))
                 {
-                    $id = $tampil_akun_hasil['id_akun'];
-                    $nm = $tampil_akun_hasil['nama_akun'];
-                    $user = $tampil_akun_hasil['username'];
-                    $pass = $tampil_akun_hasil['password'];
-                    $lvl = $tampil_akun_hasil['level_akun'];
-                    $no_hp = $tampil_akun_hasil['no_hp'];
+                    $id_akn = $tampil_akun_hasil['id_akun'];
+                    $nm_akn = $tampil_akun_hasil['nama_akun'];
+                    $user_akn = $tampil_akun_hasil['username'];
+                    $pass_akn = $tampil_akun_hasil['password'];
+                    $lvl_akn = $tampil_akun_hasil['level_akun'];
+                    $no_hp_akn = $tampil_akun_hasil['no_hp'];
             ?>
             <tr>
-                <td><?php echo $id;?></td>
-                <td><?php echo $nm;?></td>
-                <td><?php echo $user;?></td>
-                <td><?php echo $pass;?></td>
-                <td><?php echo $lvl;?></td>
-                <td><?php echo $no_hp;?></td>
+                <td><?php echo $id_akn;?></td>
+                <td><?php echo $nm_akn;?></td>
+                <td><?php echo $user_akn;?></td>
+                <td><?php echo $pass_akn;?></td>
+                <td><?php echo $lvl_akn;?></td>
+                <td><?php echo $no_hp_akn;?></td>
                 <td>
                     <a class="badge btn btn-success"
-                        data-bs-toggle="modal" data-bs-target="#editdata<?php echo $id; ?>">
+                        data-bs-toggle="modal" data-bs-target="#edit_akun<?php echo $id_akn; ?>">
                         <i class="fa-solid fa-pencil"></i>
-                        <span>Ubah</span>
+                        <span>Edit</span>
                     </a>
-                    <?php include "../inc/modal_editakun.php"; ?>
+                    <?php include "form/modal_editinven.php"; ?>
                     <a class="badge btn btn-danger"
-                        href="../inc/process.php?hapus_akun=<?php echo $id; ?>"
+                        href="../inc/process.php?hapus_akun=<?php echo $id_akn; ?>"
                         onclick="confirmDelete(event)">
                         <i class="fa-solid fa-trash-can"></i>
                         <span>Hapus</span>

@@ -1,5 +1,8 @@
 <?php
-    include "inc/connect.php";
+    date_default_timezone_set('Asia/Jakarta');
+    setlocale(LC_ALL, 'id-ID', 'id_ID');
+
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,89 +54,83 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <!-- SWIPER JS -->
 
+        <!-- SWEETALERT JS -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.all.min.js"></script>
+        <!-- SWEETALERT JS -->
+
         <link rel="stylesheet" href="assets/style.css">
-        <title>
-            <?php
-                if(isset($_GET['katalog'])){
-                    echo "Katalog Barang - Inventaris Gereja";
-                }
-                elseif(isset($_GET['tentang'])){
-                    echo "Tentang - Inventaris Gereja";
-                }
-                else{
-                    echo "Inventaris Gereja";
-                }
-            ?>
-        </title>
+        <title>Login - Inventaris Gereja</title>
     </head>
-    <body>
-        <!-- HEADER -->
-        <div class="sticky-top d-flex flex-column flex-wrap p-0">
-            <div class="d-flex flex-row justify-content-evenly align-items-center p-1 text-bg-light">
-                <div class="d-flex flex-row align-items-center">
-                    <img class="nav-img" src="img/logo-paroki-new.webp" alt="image">
-                    <div class="d-flex flex-column ms-2">
-                        <span>Gereja Katolik Paroki St. Albertus de Trapani</span>
-                        <a class="web-link badge bg-success text-start"
-                            href="https://parokiblimbing.org" target="_blank">
-                            parokiblimbing.org
-                        </a>
+    <body class="bg-dark bg-gradient">
+        <?php
+            require_once "inc/connect.php";
+            if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true)
+            {
+        ?>
+            <script>
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Silahkan Logout terlebih dahulu",
+                    confirmButtonColor: "#d33",
+                    confirmButtonText: "OK"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'dashboard/';
+                    }
+                });
+            </script>
+        <?php
+            } else if(isset($_SESSION['invalid-acc'])) {
+        ?>
+            <script>
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Username / Password Anda Salah",
+                    confirmButtonColor: "#d33",
+                    confirmButtonText: "Coba Lagi"
+                })
+            </script>
+        <?php 
+            unset($_SESSION['invalid-acc']);
+            }
+        ?>
+        <div class="container-fluid d-flex flex-column justify-content-center align-items-center"
+            style="height: 100vh;">
+            <div class="container w-auto">
+                <img src="img/logo-paroki-new.webp" class="login-img mb-2" alt="image">
+                <h1 class="fs-4 mb-3 text-light">Login - Inventaris Gereja</h1>
+                <form class="needs-validation" method="POST" action="inc/process.php" autocomplete="off"
+                    enctype="multipart/form-data" novalidate>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control bg-transparent text-light" id="username" name="username" required>
+                        <label for="username">Username</label>
+                        <div class="valid-feedback">
+                            Username telah terisi
+                        </div>
+                        <div class="invalid-feedback">
+                            Username tidak boleh kosong
+                        </div>
                     </div>
-                </div>
-                <ul class="navbar-nav d-flex flex-row">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">
-                            <i class="fa-solid fa-house me-1"></i>
-                            <span>Beranda</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ms-4">
-                        <a class="nav-link" href="index.php?katalog=katalog.php">
-                            <i class="fa-regular fa-folder-open me-1"></i>
-                            <span>Katalog</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ms-4">
-                        <a class="nav-link" href="index.php?tentang=tentang.php">
-                            <i class="fa-solid fa-people-group me-1"></i>
-                            <span>Tentang</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ms-4">
-                        <button type="button" class="btn btn-primary bg-gradient"
-                            data-bs-toggle="modal" data-bs-target="#LoginModal">
-                            <i class="fa-solid fa-right-to-bracket me-1"></i>
-                            <span>Login</span>
-                        </button>
-                    </li>
-                </ul>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control bg-transparent text-light" id="password" name="password" required>
+                        <label for="password">Password</label>
+                        <div class="valid-feedback">
+                            Password telah terisi
+                        </div>
+                        <div class="invalid-feedback">
+                            Password tidak boleh kosong
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success bg-gradient"
+                        name="form_process" value="login">
+                        <i class="fa-solid fa-arrow-right-to-bracket me-1"></i>
+                        <span>Login</span>
+                    </button>
+                </form>
             </div>
         </div>
-        <!-- HEADER -->
-
-        <!-- CONTENT -->
-        <div class="container-fluid d-flex flex-column">
-            <?php include "login.php"; ?>
-            <?php include "popup_data.php"; ?>
-            <?php
-                if(isset($_GET['katalog'])){
-                    require_once "katalog.php";
-                }
-                elseif(isset($_GET['tentang'])){
-                    require_once "tentang.php";
-                }
-                elseif(isset($_GET['login'])){
-                    require_once "login.php";
-                }
-                else{
-                    require_once "home.php";
-                }
-            ?>
-        </div>
-        <!-- CONTENT -->
-        <?php
-            mysqli_close($connect);
-        ?>
     </body>
     <!-- JavaScript -->
     <script src="assets/script.js"></script>

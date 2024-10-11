@@ -12,7 +12,7 @@
     </script>
 <?php
     unset($_SESSION['sukses-tambah-barang-baru']);
-    } elseif(isset($_SESSION['sukses-edit-barang-baru'])){
+    } elseif(isset($_SESSION['sukses-edit-barang'])){
 ?>
     <script>
         Swal.fire({
@@ -24,7 +24,7 @@
         });
     </script>
 <?php
-    unset($_SESSION['sukses-edit-barang-baru']);
+    unset($_SESSION['sukses-edit-barang']);
     } elseif(isset($_SESSION['sukses-hapus-barang-baru'])){
 ?>
     <script>
@@ -38,13 +38,52 @@
     </script>
 <?php
     unset($_SESSION['sukses-hapus-barang-baru']);
-    } 
+    } elseif(isset($_SESSION['sukses-tambah-barang-ada'])){
 ?>
-<div class="bg-light p-3 rounded-4">
-    <table id="table-data" class="display">
+    <script>
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Penambahan Jumlah Barang berhasil ditambahkan",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    </script>
+<?php
+    unset($_SESSION['sukses-tambah-barang-ada']);
+    } elseif(isset($_SESSION['sukses-kurangi-barang'])){
+?>
+    <script>
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Pengurangan Jumlah Barang berhasil dikurangkan",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    </script>
+<?php
+    unset($_SESSION['sukses-kurangi-barang']);
+    }
+?>
+<div class="d-flex flex-row justify-content-end">
+    <a class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#tambah_baru">
+        <i class="fa-solid fa-plus"></i>
+        Tambah Barang Baru
+    </a>
+    <a href="" class="btn btn-outline-danger me-2">
+        <i class="fa-solid fa-file-pdf"></i>
+        PDF
+    </a>
+    <a href="" class="btn btn-outline-success">
+        <i class="fa-solid fa-file-excel"></i>
+        Excel
+    </a>
+</div>
+<div class="bg-light overflow-x-auto">
+    <table id="datamaster" class="table table-hover">
         <thead>
             <tr>
-                <th>ID Barang</th>
                 <th>Nama Barang</th>
                 <th>Jumlah</th>
                 <th>Kondisi</th>
@@ -55,53 +94,8 @@
                 <th>Aksi</th>
             </tr>
         </thead>
-        <tbody>
-            <?php
-                $tampil_barang_gereja = "select * from barang_gereja";
-                $tampil_barang_gereja_query = mysqli_query($connect,$tampil_barang_gereja);
-                while($tampil_barang_gereja_hasil = mysqli_fetch_assoc($tampil_barang_gereja_query))
-                {
-                    $id = $tampil_barang_gereja_hasil['id_barang'];
-                    $nm = $tampil_barang_gereja_hasil['nama_barang'];
-                    $jml = $tampil_barang_gereja_hasil['jumlah'];
-                    $knd = $tampil_barang_gereja_hasil['kondisi'];
-                    $ket = $tampil_barang_gereja_hasil['keterangan_kondisi'];
-                    $nm_bangunan = $tampil_barang_gereja_hasil['nama_bangunan'];
-                    $nm_loc = $tampil_barang_gereja_hasil['nama_lokasi_utama'];
-                    $nm_los = $tampil_barang_gereja_hasil['nama_lokasi_sekunder'];
-            ?>
-            <tr>
-                <td><?php echo $id;?></td>
-                <td><?php echo $nm;?></td>
-                <td><?php echo $jml;?></td>
-                <td><?php echo $knd;?></td>
-                <td><?php echo $ket;?></td>
-                <td><?php echo $nm_bangunan;?></td>
-                <td><?php echo $nm_loc;?></td>
-                <td><?php echo $nm_los;?></td>
-                <td>
-                    <a class="badge btn btn-success"
-                        data-bs-toggle="modal" data-bs-target="#editdata<?php echo $id; ?>">
-                        <i class="fa-solid fa-pencil"></i>
-                        <span>Ubah</span>
-                    </a>
-                    <?php include "../inc/modal_editbarang.php"; ?>
-                    <a class="badge btn btn-danger"
-                        href="../inc/process.php?hapus_barang_gereja=<?php echo $id; ?>"
-                        onclick="confirmDelete(event)">
-                        <i class="fa-solid fa-trash-can"></i>
-                        <span>Hapus</span>
-                    </a>
-                </td>
-            </tr>
-            <?php
-                }
-                mysqli_free_result($tampil_barang_gereja_query);            
-            ?>
-        </tbody>
         <tfoot>
             <tr>
-                <th>ID Barang</th>
                 <th>Nama Barang</th>
                 <th>Jumlah</th>
                 <th>Kondisi</th>

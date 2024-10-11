@@ -40,8 +40,22 @@
     unset($_SESSION['sukses-hapus-lokasi-sekunder']);
     } 
 ?>
-<div class="bg-light p-3 rounded-4">
-    <table id="table-data" class="display" style="width:100%">
+<div class="d-flex flex-row justify-content-end">
+    <a class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#tambah_lokasisekunder">
+        <i class="fa-solid fa-plus"></i>
+        Tambah Lokasi Sekunder
+    </a>
+    <a href="" class="btn btn-outline-danger me-2">
+        <i class="fa-solid fa-file-pdf"></i>
+        PDF
+    </a>
+    <a href="" class="btn btn-outline-success">
+        <i class="fa-solid fa-file-excel"></i>
+        Excel
+    </a>
+</div>
+<div class="bg-light overflow-x-auto">
+    <table id="datamaster-los" class="table table-hover">
         <thead>
             <tr>
                 <th>ID Lokasi</th>
@@ -51,47 +65,6 @@
                 <th>Aksi</th>
             </tr>
         </thead>
-        <tbody>
-            <?php
-                $tampil_lokasi_sekunder = "select * from lokasi_sekunder";
-                $tampil_lokasi_sekunder_query = mysqli_query($connect,$tampil_lokasi_sekunder);
-                while($tampil_lokasi_sekunder_hasil = mysqli_fetch_assoc($tampil_lokasi_sekunder_query))
-                {
-                    $id = $tampil_lokasi_sekunder_hasil['id_lokasi_sekunder'];
-                    $nm = $tampil_lokasi_sekunder_hasil['nama_lokasi_sekunder'];
-                    $nm_loc = $tampil_lokasi_sekunder_hasil['nama_lokasi_utama'];
-                    $nm_bgn = $tampil_lokasi_sekunder_hasil['nama_bangunan'];
-            ?>
-            <tr>
-                <td><?php echo $id;?></td>
-                <td><?php echo $nm;?></td>
-                <td><?php echo $nm_loc;?></td>
-                <td><?php echo $nm_bgn;?></td>
-                <td>
-                    <a class="badge btn btn-info"
-                        data-bs-toggle="modal" data-bs-target="#detaildata<?php echo $id; ?>">
-                        <i class="fa-solid fa-pencil"></i>
-                        <span>Detail Barang</span>
-                    </a>
-                    <?php include "../inc/modal_detaildata.php"; ?>
-                    <a class="badge btn btn-success"
-                        href="index.php?form-lokasi-sekunder=form-lokasi-sekunder.php&ubah_lokasi_sekunder=<?php echo $id; ?>">
-                        <i class="fa-solid fa-pencil"></i>
-                        <span>Ubah</span>
-                    </a>
-                    <a class="badge btn btn-danger"
-                        href="../inc/process.php?hapus_lokasi_sekunder=<?php echo $id; ?>"
-                        onclick="confirmDelete(event)">
-                        <i class="fa-solid fa-trash-can"></i>
-                        <span>Hapus</span>
-                    </a>
-                </td>
-            </tr>
-            <?php
-                }
-                mysqli_free_result($tampil_lokasi_sekunder_query);            
-            ?>
-        </tbody>
         <tfoot>
             <tr>
                 <th>ID Lokasi</th>

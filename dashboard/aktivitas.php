@@ -1,5 +1,5 @@
-<div class="bg-light p-3 rounded-4">
-    <table id="table-data" class="display">
+<div class="bg-light overflow-x-auto">
+    <table class="display table table-hover">
     <thead>
         <tr>
             <th>Waktu/Tanggal</th>
@@ -9,17 +9,17 @@
     </thead>
     <tbody>
         <?php
-            $tampil_aktivitas = "select * from aktivitas";
+            $tampil_aktivitas = "select * from aktivitas order by no desc limit 100";
             $tampil_aktivitas_query = mysqli_query($connect,$tampil_aktivitas);
             while($tampil_aktivitas_hasil = mysqli_fetch_assoc($tampil_aktivitas_query))
             {
-                $time = $tampil_aktivitas_hasil['waktu'];
-                $user = $tampil_aktivitas_hasil['user'];
+                $wkt = $tampil_aktivitas_hasil['waktu'];
+                $akn = $tampil_aktivitas_hasil['user'];
                 $akt = $tampil_aktivitas_hasil['aktivitas'];
         ?>
         <tr>
-            <td><?php echo $time;?></td>
-            <td><?php echo $user;?></td>
+            <td><?php echo $wkt;?></td>
+            <td><?php echo $akn;?></td>
             <td><?php echo $akt;?></td>
         </tr>
         <?php

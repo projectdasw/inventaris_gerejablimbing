@@ -40,8 +40,22 @@
     unset($_SESSION['sukses-hapus-lokasi-utama']);
     } 
 ?>
-<div class="bg-light p-3 rounded-4">
-    <table id="table-data" class="display">
+<div class="d-flex flex-row justify-content-end">
+    <a class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#tambah_lokasiutama">
+        <i class="fa-solid fa-plus"></i>
+        Tambah Lokasi Utama
+    </a>
+    <a href="" class="btn btn-outline-danger me-2">
+        <i class="fa-solid fa-file-pdf"></i>
+        PDF
+    </a>
+    <a href="" class="btn btn-outline-success">
+        <i class="fa-solid fa-file-excel"></i>
+        Excel
+    </a>
+</div>
+<div class="bg-light overflow-x-auto">
+    <table id="datamaster-loc" class="table table-hover">
         <thead>
             <tr>
                 <th>ID Lokasi</th>
@@ -50,45 +64,6 @@
                 <th>Aksi</th>
             </tr>
         </thead>
-        <tbody>
-            <?php
-                $tampil_lokasi_utama = "select * from lokasi_utama";
-                $tampil_lokasi_utama_query = mysqli_query($connect,$tampil_lokasi_utama);
-                while($tampil_lokasi_utama_hasil = mysqli_fetch_assoc($tampil_lokasi_utama_query))
-                {
-                    $id = $tampil_lokasi_utama_hasil['id_lokasi'];
-                    $loc = $tampil_lokasi_utama_hasil['nama_lokasi_utama'];
-                    $nm_bgn = $tampil_lokasi_utama_hasil['nama_bangunan'];
-            ?>
-            <tr>
-                <td><?php echo $id;?></td>
-                <td><?php echo $loc;?></td>
-                <td><?php echo $nm_bgn;?></td>
-                <td>
-                    <a class="badge btn btn-info"
-                        data-bs-toggle="modal" data-bs-target="#detaildata<?php echo $id; ?>">
-                        <i class="fa-solid fa-pencil"></i>
-                        <span>Detail Barang</span>
-                    </a>
-                    <?php include "../inc/modal_detaildata.php"; ?>
-                    <a class="badge btn btn-success"
-                        href="index.php?form-lokasi-utama=form-lokasi-utama.php&ubah_lokasi_utama=<?php echo $id; ?>">
-                        <i class="fa-solid fa-pencil"></i>
-                        <span>Ubah</span>
-                    </a>
-                    <a class="badge btn btn-danger"
-                        href="../inc/process.php?hapus_lokasi_utama=<?php echo $id; ?>"
-                        onclick="confirmDelete(event)">
-                        <i class="fa-solid fa-trash-can"></i>
-                        <span>Hapus</span>
-                    </a>
-                </td>
-            </tr>
-            <?php
-                }
-                mysqli_free_result($tampil_lokasi_utama_query);            
-            ?>
-        </tbody>
         <tfoot>
             <tr>
                 <th>ID Lokasi</th>
