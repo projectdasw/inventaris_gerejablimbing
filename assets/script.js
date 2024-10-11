@@ -1,14 +1,203 @@
 // DATATABLE
-new DataTable('#table-data');
-new DataTable('#table_acc');
-new DataTable('#table_track');
-new DataTable('#table_trans_barang');
-new DataTable('#table_bangunan');
-new DataTable('#table_lokasi_utama');
-new DataTable('#table_lokasi_sekunder');
-new DataTable('#table_report_bangunan');
-new DataTable('#table_report_lokasi_utama');
-new DataTable('#table_report_lokasi_sekunder');
+new DataTable('table.display', {
+    order: false,
+    destroy: true
+});
+new DataTable('#table_track', {
+    order: false,
+    destroy: true
+});
+
+// SERVER SIDE PROCESSING
+$('#datamaster').DataTable({
+    serverSide: true,
+    processing: true,
+    ajax: {
+        url: '../inc/datamaster_serverside.php',
+        type: 'post'
+    },
+    ordering: false,
+});
+
+$('#datamaster-bangunan').DataTable({
+    ordering: false,
+    serverSide: true,
+    processing: true,
+    ajax: {
+        url: '../inc/datamaster_bangunan_serverside.php',
+        type: 'post'
+    }
+});
+
+$('#laporan-bangunan').DataTable({
+    ordering: false,
+    serverSide: true,
+    processing: true,
+    ajax: {
+        url: '../inc/laporanbangunan_serverside.php',
+        type: 'post'
+    }
+});
+
+$('#datamaster-loc').DataTable({
+    ordering: false,
+    serverSide: true,
+    processing: true,
+    ajax: {
+        url: '../inc/datamaster_loc_serverside.php',
+        type: 'post'
+    }
+});
+
+$('#laporan-lokasiutama').DataTable({
+    ordering: false,
+    serverSide: true,
+    processing: true,
+    ajax: {
+        url: '../inc/laporanlokasiutama_serverside.php',
+        type: 'post'
+    }
+});
+
+$('#datamaster-los').DataTable({
+    ordering: false,
+    serverSide: true,
+    processing: true,
+    ajax: {
+        url: '../inc/datamaster_los_serverside.php',
+        type: 'post'
+    }
+});
+
+$('#laporan-lokasisekunder').DataTable({
+    ordering: false,
+    serverSide: true,
+    processing: true,
+    ajax: {
+        url: '../inc/laporanlokasisekunder_serverside.php',
+        type: 'post'
+    }
+});
+
+$('#datadetail_baru').DataTable({
+    order: false,
+    serverSide: true,
+    processing: true,
+    ajax: {
+        url: '../inc/detailbaru_serverside.php',
+        type: 'post'
+    }
+});
+
+$('#datadetail_tambah').DataTable({
+    order: false,
+    serverSide: true,
+    processing: true,
+    ajax: {
+        url: '../inc/detailtambah_serverside.php',
+        type: 'post'
+    }
+});
+
+$('#datadetail_kurang').DataTable({
+    order: false,
+    serverSide: true,
+    processing: true,
+    ajax: {
+        url: '../inc/detailkurang_serverside.php',
+        type: 'post'
+    }
+});
+
+$('#trans_barang').DataTable({
+    order: [[0, 'desc']],
+    serverSide: true,
+    processing: true,
+    ajax: {
+        url: '../inc/transbarang_serverside.php',
+        type: 'post'
+    }
+});
+// SERVER SIDE PROCESSING
+
+// Inisialisasi Select2
+$('#nama_bangunan_select').select2( {
+    theme: 'bootstrap-5',
+    placeholder: $( this ).data( 'placeholder' ),
+    allowClear: true
+});
+
+$('#nama_bangunan2_select').select2( {
+    theme: 'bootstrap-5',
+    placeholder: $( this ).data( 'placeholder' ),
+    allowClear: true
+});
+
+$('#nama_bangunan3_select').select2( {
+    theme: 'bootstrap-5',
+    placeholder: $( this ).data( 'placeholder' ),
+    allowClear: true,
+    dropdownParent: $('#tambah_lokasiutama')
+});
+
+$('#nama_lokasi_utama_select').select2( {
+    theme: 'bootstrap-5',
+    placeholder: $( this ).data( 'placeholder' ),
+    allowClear: true
+});
+
+$('#nama_lokasi_utama2_select').select2( {
+    theme: 'bootstrap-5',
+    placeholder: $( this ).data( 'placeholder' ),
+    allowClear: true
+});
+
+$('#nama_lokasi_sekunder_select').select2( {
+    theme: 'bootstrap-5',
+    placeholder: $( this ).data( 'placeholder' ),
+    allowClear: true
+});
+
+$('#nama_barang_select').select2( {
+    theme: 'bootstrap-5',
+    placeholder: $( this ).data( 'placeholder' ),
+    allowClear: true
+});
+
+function FetchLOC(id){
+    $("nama_bangunan_select").html('');
+    
+    $.ajax({
+        type : "POST",
+        url: "../inc/data_response.php",
+        data: {nama_bangunan :id},
+        success: function(data){
+            $("#nama_lokasi_utama_select").html(data);
+        }
+    });
+
+    // $.ajax({
+    //     type : "POST",
+    //     url: "../inc/data_response.php",
+    //     data: {nama_bangunan :id},
+    //     success: function(data){
+    //         $("nama_bangunan_select").html(data);
+    //     }
+    // });
+}
+
+function FetchLOS(id){
+    // $("nama_lokasi_sekunder_select").html('');
+    $("nama_lokasi_utama_select").html('');
+    $.ajax({
+        type : "POST",
+        url: "../inc/data_response.php",
+        data: {nama_lokasi_utama :id},
+        success: function(data){
+            $("#nama_lokasi_sekunder_select").html(data);
+        }
+    });
+}
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
@@ -31,21 +220,6 @@ new DataTable('#table_report_lokasi_sekunder');
 })()
 
 // SWIPER (CAROUSEL CDN JS)
-var swiper = new Swiper(".inven-carousel", {
-    speed: 1000,
-    spaceBetween: 20,
-    loop: true,
-    slidesPerView: "auto",
-    // autoplay: {
-    //     delay: 5000,
-    //     disableOnInteraction: false,
-    // },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    }
-});
-
 var swiper = new Swiper(".dash-carousel", {
     speed: 1000,
     spaceBetween: 20,
@@ -80,13 +254,6 @@ function confirmDelete(e){
             window.location.href = link;
         }
     });
-}
-
-function showdata(e){
-    e.preventDefault();
-    // const link = e.currentTarget.getAttribute("href");
-
-    document.getElementById("open-popup");
 }
 
 // FUNCTION
